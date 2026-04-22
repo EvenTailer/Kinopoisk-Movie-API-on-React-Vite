@@ -1,16 +1,98 @@
-# React + Vite
+# 🎬 Movie Explorer – your personal movie guide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A feature-rich React application that lets you discover popular and family‑friendly movies, search for any film, view detailed info (trailers, ratings, descriptions), save bookmarks, and explore similar movies – all powered by the **Kinopoisk API Unofficial**.
 
-Currently, two official plugins are available:
+🌐 **Live Demo:** [http://gramilya.xyz/](http://gramilya.xyz/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📸 Screenshots
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Home Page (Popular Movies) | Movie Details + Trailer |
+|----------------------------|-------------------------|
+| ![Home](screenshots/homepage.png) | ![Details](screenshots/infoaboutfilm.png) |
 
-## Expanding the ESLint configuration
+| Search Results | Bookmarks |
+|----------------|-----------|
+| ![Search](screenshots/bookmarks.png) | ![Bookmarks](screenshots/burgermenu.png) |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> *Replace the file names with your actual screenshots.*
+
+---
+
+## ✨ Features
+
+- **🔥 Top 100 Popular Movies** – browse the most popular films with pagination.
+- **👨‍👩‍👧‍👦 Family Movies** – a separate collection of family‑friendly films (different API endpoint).
+- **🔍 Instant Search** – search movies by keyword with debounce (avoids excessive API calls).
+- **📄 Detailed Film Page** – view full description, year, rating, poster, and **YouTube trailer** (if available).
+- **🎬 Similar Movies** – see recommendations based on the current film.
+- **🔖 Bookmarks** – add/remove movies to your personal list; data persists in `localStorage`.
+- **📱 Fully Responsive** – works seamlessly on desktop, tablet, and mobile.
+- **⚡ Performance optimised** – pagination, request cancellation, and caching reduce API limits.
+
+---
+
+## 🛠️ Tech Stack
+
+- **React 18** (functional components, hooks)
+- **Vite** – blazing fast build tool
+- **React Router DOM** – client‑side routing (optional, if used)
+- **CSS3** – Flexbox, Grid, custom animations
+- **Kinopoisk API Unofficial** – real movie data
+- **localStorage** – bookmark persistence
+- **Debounce & AbortController** – search optimisation and request cancellation
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v16+)
+- npm or yarn
+
+### Installation
+
+```bash
+git clone https://github.com/EvenTailer/Kinopoisk-Movie-API-on-React-Vite.git
+cd my-app
+npm install
+npm run dev
+Open http://localhost:5173 to see the app.
+
+Build for production
+bash
+npm run build
+The output will be in the dist folder, ready to deploy.
+
+🔑 API Key
+The project uses the Kinopoisk API Unofficial.
+A demo API key is included in the code, but for production you should register your own key and replace it in hooks/useKinopoisk.js.
+
+📁 Project Structure
+text
+src/
+├── components/       # React components (Arena, CharacterHero, etc.)
+├── hooks/            # Custom hooks (useKinopoisk, useKeyboard, etc.)
+├── assets/           # Images, icons
+├── App.jsx           # Main app component
+├── main.jsx          # Entry point
+└── style.css         # Global styles
+🌟 Future Improvements
+User accounts (Firebase / Node.js backend)
+
+Global leaderboard for bookmarked films
+
+Dark/light theme toggle
+
+More filters (genre, year, rating)
+
+📄 License
+MIT
+
+🙏 Acknowledgements
+Kinopoisk API Unofficial for providing movie data.
+
+Icons and design inspiration from various Dribbble shots.
+
+Made with ❤️ by Ilya Gramatnev
