@@ -16,7 +16,6 @@ A feature-rich React application that lets you discover popular and family‑fri
 |----------------|-----------|
 | ![Search](screenshots/bookmarks.png) | ![Bookmarks](screenshots/burgermenu.png) |
 
-> *Replace the file names with your actual screenshots.*
 
 ---
 
