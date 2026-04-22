@@ -1,0 +1,379 @@
+.change_page{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.page{
+    margin: 2px;
+    background-color: aqua;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.page:hover{
+    transform: scale(1.1);
+}
+
+.films-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.films-grid h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e66;
+  font-size: 2rem;
+}
+
+/* Карточка фильма */
+.film-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.film-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.film-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.film-card h3 {
+  font-size: 1.1rem;
+  margin: 12px 12px 6px;
+  color: #1e2a3a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.film-card p {
+  margin: 0 12px 16px;
+  color: #5a6874;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Кружок рейтинга */
+.rating-circle {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: white;
+  background-color: #6c757d; /* серый по умолчанию */
+}
+
+.rating-low {
+  background-color: #e63946; /* красный */
+}
+
+.rating-medium {
+  background-color: #f4a261; /* жёлто-оранжевый */
+}
+
+.rating-high {
+  background-color: #2a9d8f; /* зелёный */
+}
+.rating-null{
+    background-color: #43434b;
+}
+
+/* Пагинация */
+.change_page {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 30px 0;
+}
+
+.change_page button {
+  background: #f0f2f5;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #1e2a3a;
+}
+
+.change_page button:hover {
+  background: #2c3e66;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.change_page button:active {
+  transform: translateY(0);
+}
+
+/* Активная страница */
+.change_page .active-page {
+  background: #2c3e66;
+  color: white;
+  font-weight: bold;
+}
+
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+/* Сам инпут */
+.input_search {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 50px;
+  background-color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  outline: none;
+}
+
+.input_search:focus {
+  border-color: #2c3e66;
+  box-shadow: 0 4px 12px rgba(44, 62, 102, 0.15);
+  transform: scale(1.01);
+}
+
+.input_search::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.search-wrapper {
+  position: relative;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #94a3b8;
+  transition: color 0.2s;
+}
+
+.clear-btn:hover {
+  color: #2c3e66;
+}
+
+
+.film_info {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Кнопка назад */
+.back-button {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #2c3e66;
+  cursor: pointer;
+  padding: 16px 24px;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.back-button:hover {
+  color: #1f2c48;
+  transform: translateX(-4px);
+}
+
+/* Основная сетка: постер + текст */
+.film-detail-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
+  padding: 0 30px 30px 30px;
+}
+
+@media (max-width: 700px) {
+  .film-detail-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* Постер */
+.film-detail-grid img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Информация */
+.film-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.film-detail-info h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #1e2a3a;
+  font-weight: 700;
+}
+
+.film-detail-info p {
+  margin: 0;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.film-detail-info p strong {
+  color: #2c3e66;
+  font-weight: 600;
+}
+
+
+.rating-big {
+  display: inline-block;
+  background-color: #2a9d8f;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  margin-top: 8px;
+}
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  left:-305px;
+  width: 280px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  transition: left 0.3s ease;
+  z-index:1000;
+  padding:20px;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar ul {
+  margin-top: 60px;
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+.sidebar li {
+  padding: 12px 16px;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background 0.2s;
+
+}
+.sidebar li:hover {
+  background-color: #baceec;
+}
+.sidebar.open{
+  left: 0;
+}
+.burger-button{
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1001;
+  background-color: #2a9d8f;
+  border-radius: 5px;
+}
+.burger-button:hover {
+  transform: translateY(-2px);
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  cursor: pointer;
+}
+.error_video{
+  display: flex;
+  justify-content: center;
+}
+.add_notes {
+  /* обычные стили */
+  background-color: #ccc;
+  color: #000;
+  transition: 0.2s;
+}
+
+.add_notes.added {
+  background-color: red;
+  color: white;
+}
+
+.delete_note{
+  border-radius: 10px;
+  border: none;
+  background-color: red;
+  color:#e2e8f0;
+  height: 25px;
+  cursor:pointer;
+}
+.delete_note:hover{
+  transform: translateY(-4px);
+}
