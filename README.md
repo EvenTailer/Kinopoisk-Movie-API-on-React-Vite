@@ -12,7 +12,7 @@ A feature-rich React application that lets you discover popular and family‑fri
 |----------------------------|-------------------------|
 | ![Home](screenshots/homepage.png) | ![Details](screenshots/infoaboutfilm.png) |
 
-| Search Results | Bookmarks |
+| Bookmarks | BurgerMenu |
 |----------------|-----------|
 | ![Bookmarks](screenshots/bookmarks.png) | ![BurgerMenu](screenshots/burgermenu.png) |
 
