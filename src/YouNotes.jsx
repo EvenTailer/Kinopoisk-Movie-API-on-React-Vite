@@ -1,3 +1,76 @@
+// import React, { useState } from "react";
+
+// function YouNotes({ notes, handleCardClick, setNotes }) {
+
+//     const [searchNote, setSearchNote] = useState('');
+
+//     const displayedNotes = searchNote.trim() === '' ?
+//         notes :
+//         notes.filter(note => note.nameRu.toLowerCase().includes(searchNote.toLowerCase()));
+
+
+//     function deleteNote(id) {
+//         setNotes(notes.filter(note => note.kinopoiskId !== id));
+//     }
+
+//     return (<>
+//         <div className="search-wrapper">
+//             <input
+//                 value = {searchNote}
+//                 className="input_search"
+//                 onChange={(even) => setSearchNote(even.target.value)}
+
+//                 placeholder="Поиск фильма в закладках..."
+//             />
+//             {searchNote && (
+//                 <button className="clear-btn"
+//                     onClick={() => setSearchNote('')}
+//                 >
+//                     ✕
+//                 </button>
+//             )}
+//         </div>
+//         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
+//             {displayedNotes.map((note, index) => {
+//                 // Определяем класс рейтинга
+//                 let ratingClass = '';
+//                 const rating = parseFloat(note.ratingKinopoisk);
+//                 if (rating <= 5) ratingClass = 'rating-low';
+//                 else if (rating <= 6.5) ratingClass = 'rating-medium';
+//                 else if (rating > 6.5) ratingClass = 'rating-high';
+//                 else ratingClass = 'rating-null';
+
+//                 return (
+
+//                     <div key={note.kinopoiskId} className="film-card">
+//                         <img
+//                             onClick={() => handleCardClick(note.kinopoiskId)}
+//                             src={note.posterUrlPreview}
+//                             alt={note.nameRu}
+//                         />
+//                         <h3>{note.nameRu}</h3>
+//                         <h3>{note.year}</h3>
+//                         <p>
+//                             <span>{note.year}</span>
+//                             <span><button
+//                                 className="delete_note"
+//                                 onClick={() => deleteNote(note.kinopoiskId)}
+//                             >Удалить</button></span>
+//                             <span className={`rating-circle ${ratingClass}`}>
+//                                 {note.ratingKinopoisk}
+//                             </span>
+//                         </p>
+//                     </div>
+
+//                 );
+
+//             })}
+//         </div>
+//     </>)
+// }
+
+// export default YouNotes;
+
 import React, { useState } from "react";
 
 function YouNotes({ notes, handleCardClick, setNotes }) {
@@ -8,65 +81,73 @@ function YouNotes({ notes, handleCardClick, setNotes }) {
         notes :
         notes.filter(note => note.nameRu.toLowerCase().includes(searchNote.toLowerCase()));
 
-
     function deleteNote(id) {
         setNotes(notes.filter(note => note.kinopoiskId !== id));
     }
 
-    return (<>
-        <div className="search-wrapper">
-            <input
-                value = {searchNote}
-                className="input_search"
-                onChange={(even) => setSearchNote(even.target.value)}
+    return (
+        <>
+            <div className="bookmarks-header">
+                <h1>🔖 Мои закладки</h1>
+                <p>Фильмы, которые вы сохранили</p>
+            </div>
 
-                placeholder="Поиск фильма в закладках..."
-            />
-            {searchNote && (
-                <button className="clear-btn"
-                    onClick={() => setSearchNote('')}
-                >
-                    ✕
-                </button>
+            <div className="search-wrapper">
+                <input
+                    value={searchNote}
+                    className="input_search"
+                    onChange={(e) => setSearchNote(e.target.value)}
+                    placeholder="🔍 Поиск по закладкам..."
+                />
+                {searchNote && (
+                    <button className="clear-btn" onClick={() => setSearchNote('')}>
+                        ✕
+                    </button>
+                )}
+            </div>
+
+            {displayedNotes.length === 0 ? (
+                <div className="empty-bookmarks">
+                    <p>📭 У вас пока нет сохранённых фильмов</p>
+                    <p>Добавляйте фильмы в закладки на странице фильма</p>
+                </div>
+            ) : (
+                <div className="films-grid">
+                    {displayedNotes.map((note) => {
+                        let ratingClass = '';
+                        const rating = parseFloat(note.ratingKinopoisk);
+                        if (rating <= 5) ratingClass = 'rating-low';
+                        else if (rating <= 6.5) ratingClass = 'rating-medium';
+                        else if (rating > 6.5) ratingClass = 'rating-high';
+                        else ratingClass = 'rating-null';
+
+                        return (
+                            <div key={note.kinopoiskId} className="film-card">
+                                <img
+                                    onClick={() => handleCardClick(note.kinopoiskId)}
+                                    src={note.posterUrlPreview}
+                                    alt={note.nameRu}
+                                />
+                                <h3>{note.nameRu}</h3>
+                                <p>
+                                    <span>📅 {note.year}</span>
+                                    <span className={`rating-circle ${ratingClass}`}>
+                                        {note.ratingKinopoisk}
+                                    </span>
+                                </p>
+                                <button
+                                    className="delete-note-btn"
+                                    onClick={() => deleteNote(note.kinopoiskId)}
+                                >
+                                    🗑️ Удалить
+                                </button>
+                            </div>
+                        );
+                    })}
+                </div>
             )}
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
-            {displayedNotes.map((note, index) => {
-                // Определяем класс рейтинга
-                let ratingClass = '';
-                const rating = parseFloat(note.ratingKinopoisk);
-                if (rating <= 5) ratingClass = 'rating-low';
-                else if (rating <= 6.5) ratingClass = 'rating-medium';
-                else if (rating > 6.5) ratingClass = 'rating-high';
-                else ratingClass = 'rating-null';
-
-                return (
-
-                    <div key={note.kinopoiskId} className="film-card">
-                        <img
-                            onClick={() => handleCardClick(note.kinopoiskId)}
-                            src={note.posterUrlPreview}
-                            alt={note.nameRu}
-                        />
-                        <h3>{note.nameRu}</h3>
-                        <h3>{note.year}</h3>
-                        <p>
-                            <span>{note.year}</span>
-                            <span><button
-                                className="delete_note"
-                                onClick={() => deleteNote(note.kinopoiskId)}
-                            >Удалить</button></span>
-                            <span className={`rating-circle ${ratingClass}`}>
-                                {note.ratingKinopoisk}
-                            </span>
-                        </p>
-                    </div>
-
-                );
-
-            })}
-        </div>
-    </>)
+        </>
+    );
 }
 
 export default YouNotes;
