@@ -14,7 +14,7 @@ A feature-rich React application that lets you discover popular and family‑fri
 
 | Search Results | Bookmarks |
 |----------------|-----------|
-| ![Search](screenshots/bookmarks.png) | ![Bookmarks](screenshots/burgermenu.png) |
+| ![Bookmarks](screenshots/bookmarks.png) | ![BurgerMenu](screenshots/burgermenu.png) |
 
 
 ---
